@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicación de gestión de tareas TaskManager">
+    <title>TaskManager | Gestión de tareas</title>
+</head>
+<body>
+
+    <header>
+        <h1>TaskManager</h1>
+        <p>Organiza tus tareas y alcanza tus objetivos.</p>
+    </header>
+
+    <main>
+        <section id="dashboard">
+            <h2>Resumen de tareas</h2>
+
+            <p>Total de tareas: <span id="totalTasks">0</span></p>
+            <p>Pendientes: <span id="pendingTasks">0</span></p>
+            <p>Completadas: <span id="completedTasks">0</span></p>
+        </section>
+
+        <section id="taskFormSection">
+            <h2>Nueva tarea</h2>
+
+            <form id="taskForm">
+                <label for="taskTitle">Título de la tarea</label>
+                <input
+                    type="text"
+                    id="taskTitle"
+                    placeholder="Escribe el título de tu tarea"
+                    required
+                >
+
+                <label for="taskDescription">Descripción</label>
+                <textarea
+                    id="taskDescription"
+                    placeholder="Describe la tarea"
+                ></textarea>
+
+                <label for="taskPriority">Prioridad</label>
+                <select id="taskPriority">
+                    <option value="Alta">Alta</option>
+                    <option value="Media" selected>Media</option>
+                    <option value="Baja">Baja</option>
+                </select>
+
+                <button type="submit">Agregar tarea</button>
+            </form>
+        </section>
+
+        <section id="taskControls">
+            <h2>Mis tareas</h2>
+
+            <label for="searchInput">Buscar por título</label>
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Buscar tareas..."
+            >
+
+            <label for="statusFilter">Filtrar por estado</label>
+            <select id="statusFilter">
+                <option value="all">Todas</option>
+                <option value="pending">Pendientes</option>
+                <option value="completed">Completadas</option>
+            </select>
+
+            <label for="sortBy">Ordenar por</label>
+            <select id="sortBy">
+                <option value="date">Fecha de creación</option>
+                <option value="priority">Prioridad</option>
+            </select>
+
+            <div id="notification" role="status" aria-live="polite"></div>
+
+            <div id="taskList">
+                <p id="emptyMessage">Todavía no hay tareas. ¡Agrega la primera!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>TaskManager - Actividad Integradora 2</p>
+    </footer>
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
