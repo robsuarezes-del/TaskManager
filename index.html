@@ -4,43 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TaskManager: aplicación web para organizar y administrar tareas.">
+    <meta name="description" content="TaskManager: aplicación web para organizar tareas, prioridades y actividades pendientes.">
     <title>TaskManager | Gestión de tareas</title>
     <link rel="stylesheet" href="./styles.css">
     <script type="module" src="./main.js"></script>
 </head>
 <body>
     <header class="header">
-        <div class="container">
-            <h1>TaskManager</h1>
-            <p>Organiza tus tareas y alcanza tus objetivos.</p>
+        <div class="container header-content">
+            <div class="brand">
+                <span class="brand-icon">✓</span>
+                <div>
+                    <h1>TaskManager</h1>
+                    <p>Organiza tus tareas y alcanza tus objetivos.</p>
+                </div>
+            </div>
         </div>
     </header>
 
     <main class="container">
+        <section class="welcome">
+            <h2>Mi espacio de trabajo</h2>
+            <p>Planifica tus actividades, establece prioridades y controla tu progreso.</p>
+        </section>
+
         <section class="dashboard">
-            <h2>Resumen de tareas</h2>
-
-            <div class="summary-grid">
-                <article class="summary-card">
-                    <h3>Total de tareas</h3>
-                    <p id="totalTasks">0</p>
-                </article>
-
-                <article class="summary-card">
-                    <h3>Pendientes</h3>
-                    <p id="pendingTasks">0</p>
-                </article>
-
-                <article class="summary-card">
-                    <h3>Completadas</h3>
-                    <p id="completedTasks">0</p>
-                </article>
-            </div>
+            <article class="stat-card">
+                <span class="stat-label">Total de tareas</span>
+                <strong id="totalTasks">0</strong>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Pendientes</span>
+                <strong id="pendingTasks">0</strong>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Completadas</span>
+                <strong id="completedTasks">0</strong>
+            </article>
         </section>
 
         <section class="panel">
-            <h2>Nueva tarea</h2>
+            <div class="section-heading">
+                <h2>Nueva tarea</h2>
+                <p>Registra una actividad para mantenerte organizado.</p>
+            </div>
 
             <form id="taskForm">
                 <div class="form-group">
@@ -48,7 +55,7 @@
                     <input
                         type="text"
                         id="taskTitle"
-                        placeholder="Escribe el título de tu tarea"
+                        placeholder="Ej.: Terminar el proyecto"
                         maxlength="100"
                         required
                     >
@@ -58,7 +65,7 @@
                     <label for="taskDescription">Descripción</label>
                     <textarea
                         id="taskDescription"
-                        placeholder="Describe la tarea"
+                        placeholder="Describe los detalles de la tarea..."
                         rows="3"
                     ></textarea>
                 </div>
@@ -72,27 +79,30 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn btn-primary">
-                    Agregar tarea
+                <button class="btn btn-primary" type="submit">
+                    + Agregar tarea
                 </button>
             </form>
         </section>
 
         <section class="panel">
-            <h2>Mis tareas</h2>
+            <div class="section-heading">
+                <h2>Mis tareas</h2>
+                <p>Consulta, busca y organiza tus actividades.</p>
+            </div>
 
             <div class="filters">
                 <div class="form-group">
-                    <label for="searchInput">Buscar por título</label>
+                    <label for="searchInput">Buscar</label>
                     <input
                         type="search"
                         id="searchInput"
-                        placeholder="Buscar tareas..."
+                        placeholder="Buscar por título..."
                     >
                 </div>
 
                 <div class="form-group">
-                    <label for="statusFilter">Filtrar por estado</label>
+                    <label for="statusFilter">Estado</label>
                     <select id="statusFilter">
                         <option value="all">Todas</option>
                         <option value="pending">Pendientes</option>
@@ -111,8 +121,8 @@
 
             <div id="notification" role="status" aria-live="polite"></div>
 
-            <div id="taskList">
-                <p id="emptyMessage">
+            <div id="taskList" class="task-list">
+                <p id="emptyMessage" class="empty-message">
                     Todavía no hay tareas. ¡Agrega la primera!
                 </p>
             </div>
@@ -120,8 +130,10 @@
     </main>
 
     <footer class="footer">
-        <p>TaskManager | Actividad Integradora 2</p>
-        <p>Aplicación desarrollada con HTML, CSS y JavaScript.</p>
+        <div class="container">
+            <p>TaskManager · Actividad Integradora 2</p>
+            <p>Aplicación web desarrollada con HTML, CSS y JavaScript.</p>
+        </div>
     </footer>
 </body>
 </html>
